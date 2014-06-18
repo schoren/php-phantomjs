@@ -52,6 +52,13 @@ class Client implements ClientInterface
     protected $timeout;
 
     /**
+     * Additional options for PhantomJs script
+     *
+     * @var string
+     */
+    protected $options;
+
+    /**
      * Internal constructor
      *
      * @param  \JonnyW\PhantomJs\Message\FactoryInterface $factory
@@ -208,7 +215,7 @@ class Client implements ClientInterface
             );
 
             $script = $this->writeScript($data);
-            $cmd  = escapeshellcmd(sprintf("%s %s", $this->phantomJS, $script));
+            $cmd  = escapeshellcmd(sprintf("%s %s %s", $this->phantomJS, $this->options, $script));
 
             $result = shell_exec($cmd);
             $result = $this->parse($result);
