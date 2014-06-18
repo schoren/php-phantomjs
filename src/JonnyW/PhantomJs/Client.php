@@ -172,6 +172,19 @@ class Client implements ClientInterface
     }
 
     /**
+     * Set PhantomJs options
+     *
+     * @param  string                   $options
+     * @return \JonnyW\PhantomJs\Client
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
+
+        return $this;
+    }
+
+    /**
      * Set timeout period (in milliseconds)
      *
      * @param  int                      $period
