@@ -321,6 +321,8 @@ class Client implements ClientInterface
         if(!response.status) response = r;
     };
 
+    page.onError = function(msg, trace) {}
+
     page.customHeaders = headers ? headers : {};
 
     page.open('%3\$s', '%4\$s', '%5\$s', function (status) {
